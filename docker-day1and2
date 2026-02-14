@@ -1,0 +1,46 @@
+root@ip-172-31-17-191:~# history 
+    1  apt get update
+    2  apt update
+    3  curl -fsSL https://get.docker.com -o install-docker.sh
+    4  sh install-docker.sh
+    5  docker -v
+    6  docker run --name jenkinsvishal -p 8080:8080 -d -it jenkins/jenkins:lts
+    7  df -h
+    8  docker images
+    9  docker ps
+   10  cat /var/jenkins_home/secrets/initialAdminPassword
+   11  docker exec -it 65a0e7d2252a bin/bash
+   12  docker images
+   13  docker ps -a
+   14  history 
+   15  docker run -it ubuntu
+   16  docker ps -a
+   17  docker start cbed6132c43d
+   18  docker ps -a
+   19  docker -it exec cbed6132c43d bin/bash
+   20  docker exec -it cbed6132c43d bin/bash
+   21  docker ps -a
+   22  docker exec -it cbed6132c43d bin/bash
+   23  history 
+   24  docker ps -a
+   25  docker images
+   26  docker ps -a
+   27  docker commit cbed6132c43d VishalImageFromContainer
+   28  docker commit cbed6132c43d vishal_image_from_container
+   29  docker images
+   30  history 
+   31  docker stat
+   32  docker stats
+   33  docker images
+   34  docker pull nginx
+   35  docker run nginx
+   37* docker run --name vishal_nginx -it -d -p 
+   38  docker run --name nginx_vishal -d -p 80:80 nginx
+   39  docker ps
+   40  docker ps -a
+   41  docker rm -f ece57f35c586
+   42  docker ps -a
+   43  docker images
+   44  docker exec -it 006d8070fb3d /bin/bash
+   45  docker stats
+   46  history 
