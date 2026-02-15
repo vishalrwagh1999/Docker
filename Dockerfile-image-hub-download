@@ -1,0 +1,40 @@
+
+    4  mkdir docker-image
+    5  cd docker-image/
+-------------------------
+# Use a specific version tag for stability
+FROM ubuntu:24.04
+
+# Use LABEL instead of MAINTAINER
+LABEL maintainer="vishalrwagh1999@gmail.com"
+
+# Install nginx, clean up cache to reduce size, and handle non-interactive prompts
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends nginx && \
+    rm -rf /var/lib/apt/lists/*
+
+# Document the port
+EXPOSE 80
+
+# Start nginx in the foreground (otherwise the container will exit immediately)
+CMD ["nginx", "-g", "daemon off;"]
+----------------------    
+
+   17  vi Dockerfile 
+   28  docker build -t vishal-dockerfile-to-image .
+   29  docker images
+   40  docker run -d -p 80:80 vishal-dockerfile-to-image
+   42  docker ps -a
+   45  docker login
+   46  docker tag 33b37c8ea634 vishaldocker85/vishal-dockerfile-to-image:latest
+   47  docker images
+   48  docker push vishaldocker85/vishal-dockerfile-to-image
+   49  history 
+   50  docker pull vishaldocker85/vishal-dockerfile-to-image
+
+
+
+
+
+
+   
