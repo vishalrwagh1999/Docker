@@ -1,0 +1,95 @@
+created a container to image as we installed python inside container not in images. hence here we are doing image from conatained with installed packages.
+docker run -it ubuntu
+apt update
+apt install python3 -y 
+docker start containerid 
+docker commit  <container ID>  yourname
+
+to store images to s3 bucket make tar backup of it write s3 commad to trasfert hr file to s3 bucket or manually we cam download.
+	docker save myimage > vishal.tar
+	docker load to make to untar the file
+
+docker troubleshoot commands.
+
+	1  sudo apt-get update &&  apt install docker.io -y
+		2  docker run -it ubuntu
+		3  docker images
+		4  docker ps -a
+		5  docker start 2d84148e8989
+		6  docker ps
+		7  docker images
+		8  docker commit 2d84148e8989 abhishekimagepython
+		9  docker images
+	   10  docker save abhishekimagepython > sandeep.tar
+	   11  ls
+	   12  docker ps
+	   13  docker inspect wonderful_cannon
+	   14  docker logs wonderful_cannon
+	   15  docker logs -f wonderful_cannon
+	   16  docker logs -follow wonderful_cannon
+	   17  docker stats
+	   18  docker logs -f wonderful_cannon > indra.log
+	   19  docker logs  wonderful_cannon > indra.log
+	   20  ls
+	   21  docker logs --follow wonderful_cannon
+	   22  history
+
+docker network:
+	
+		🔹 Docker Networking Demo: 2 Containers Communication
+		🎯 Goal
+
+		Create a custom Docker bridge network
+
+		Run 2 containers in the same network
+
+		Test container-to-container communication using container name (DNS)
+
+		🧱 Step 1: Create a Custom Docker Network
+		docker network create batch42
+
+		Verify
+		docker network ls
+
+		🐳 Step 2: Run Container-1 (Web Server)
+
+		Run nginx container:
+
+		docker run -d \
+		--name web1 \
+		--network batch42 \
+		nginx
+
+		docker run -d --name web1 --network batch42 nginx
+
+
+		🐳 Step 3: Run Container-2 (Client / Tester)
+
+		Run a busybox container:
+
+		docker run -it \
+		--name client1 \
+		--network batch42 \
+		busybox sh
+
+		🔍 Step 4: Test Connectivity (IMPORTANT DEMO PART)
+
+		Inside client1 container:
+
+		✅ Ping using container name (Docker DNS)
+		ping web1
+
+
+		👉 You will see PING successful
+		📌 This proves:
+
+		Containers are connected
+
+		Docker provides built-in DNS
+
+		✅ Test HTTP Connectivity
+		wget -qO- http://web1
+
+docker end same 11/02 kubenetes intro started
+
+https://github.com/CloudDevOpsHub/batch-42/blob/main/dockerday-5
